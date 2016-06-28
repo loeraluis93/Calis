@@ -1,0 +1,25 @@
+﻿@Model WebUdemy.ViewModels.RandomMovieViewModel
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{ 
+    var className = Model.Customer.Count > 0 ? "pupular" : null;
+}
+
+<h3 class="@className">@Model.Movie.Name</h3>
+
+@if (Model.Customer.Count == 0)
+{
+    <text>No one has rented this movie before.</text>
+}
+else
+{
+    <ul>
+        @foreach (var customer in Model.Customers)
+        {
+            <li>@customer.Name</li>
+
+        }
+    </ul>
+}
